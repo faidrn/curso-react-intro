@@ -3,3 +3,41 @@
   height: 100vh;
   padding: 25px;
 }
+
+.todo-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  margin-top: 20px;
+  border: 1px solid brown;
+}
+
+.container-list-add, 
+.container-list-doing, 
+.container-list-done{
+  width: 470px;
+  background: #E8E8E8; /*#E6E6FA;*/
+  border-radius: 13px;
+}
+
+h2{
+  margin-left: 15px;
+  margin-top: 9px;
+}
+
+ul{
+  font-size: 16px;
+  list-style-type: none;
+  padding: 18px;
+}
+
+li{
+  padding-bottom: 5px;
+}
+
+.todo-list{
+  background: #F5F5F5; /*#E8E8E8;*/
+  border-radius: 9px;
+}

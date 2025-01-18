@@ -1,9 +1,11 @@
 import { TodoUser } from './TodoUser';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
-import { TodoList } from './TodoList';
+import { TodoListAdd } from './TodoListAdd';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import { TodoListDoing } from './TodoListDoing';
+import { TodoListDone } from './TodoListDone';
 //import React from 'react';
 
 import './App.css';
@@ -25,18 +27,45 @@ function App() {
 
       <TodoCounter completed={16} total={25} />
       <TodoSearch />
+      
+      <div className='todo-container'> 
+        <TodoListAdd>
+          {defaultTodos.map(todo => (
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text} 
+              completed={todo.completed} 
+            />
+          ))}
 
-      <TodoList>
-        {defaultTodos.map(todo => (
-          <TodoItem 
-            key={todo.text} 
-            text={todo.text} 
-            completed={todo.completed} 
-          />
-        ))}
-      </TodoList>
+          <CreateTodoButton />
+          
+        </TodoListAdd>
 
-      <CreateTodoButton />
+        
+
+        <TodoListDoing>
+          {defaultTodos.map(todo => (
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text} 
+              completed={todo.completed} 
+            />
+          ))}
+        </TodoListDoing>
+
+        <TodoListDone>
+          {defaultTodos.map(todo => (
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text} 
+              completed={todo.completed}             
+            />
+          ))}
+        </TodoListDone>       
+      </div>
+
+      
     </>
     //</React.Fragment> = </>
   );
