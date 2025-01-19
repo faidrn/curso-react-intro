@@ -1,0 +1,37 @@
+.btn-add-new{
+    border: none;
+    font-size: 16px;
+    position: relative;
+    left: 297px;
+    color: gray;
+    font-weight: 500;
+    background: none;
+    cursor: pointer;
+    width: 137px;
+    height: 30px;
+}
+
+.btn-add-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 3px solid white;
+    border-radius: 5px;
+    width: 137px;
+    height: 30px;
+    opacity: 0;
+    transform: scale(1.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+ }
+
+ .btn-add-new:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.plus{
+    font-size: 20px;
+}

@@ -4,8 +4,6 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    /* margin-top: 25px; */
-    border: 1px solid red;
 }
 
 .container-img{
@@ -23,12 +21,10 @@ img{
     width: 200px;
     margin-left: 15px;
     font-weight: 600;
-    border: 1px solid black;
 }
 
-p{
+.name-user{
     font-size: 24px;
-    /* text-align: center; */
-    /* margin: 0; */
-    /* padding: 48px; */
+    color: #F5F5F5;
+    text-shadow: gray 0 1px;
 }

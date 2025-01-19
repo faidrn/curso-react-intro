@@ -5,7 +5,9 @@ import { TodoListAdd } from './TodoListAdd';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import { TodoListDoing } from './TodoListDoing';
+import { TodoItemDoing } from './TodoItemDoing';
 import { TodoListDone } from './TodoListDone';
+import { TodoItemDone } from './TodoItemDone';
 //import React from 'react';
 
 import './App.css';
@@ -46,7 +48,7 @@ function App() {
 
         <TodoListDoing>
           {defaultTodos.map(todo => (
-            <TodoItem 
+            <TodoItemDoing 
               key={todo.text} 
               text={todo.text} 
               completed={todo.completed} 
@@ -56,7 +58,7 @@ function App() {
 
         <TodoListDone>
           {defaultTodos.map(todo => (
-            <TodoItem 
+            <TodoItemDone 
               key={todo.text} 
               text={todo.text} 
               completed={todo.completed}             

@@ -1,3 +1,22 @@
-.container-list-done{
-    /*  width: 30px; */
+.todo-list-done{
+    display: flex;
+    flex-direction: column;
+}
+
+.check-icon-green{
+    fill: #008000;
+}
+
+.status-done{
+    position: relative;
+    top: -21px;
+    width: 100%;
+    left: 17px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.todo-list-done p{
+    position: relative;
+    top: -15px;
 }

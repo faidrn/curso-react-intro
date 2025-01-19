@@ -11,7 +11,6 @@
   align-items: center;
   padding-top: 20px;
   margin-top: 20px;
-  border: 1px solid brown;
 }
 
 .container-list-add, 
@@ -34,10 +33,24 @@ ul{
 }
 
 li{
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .todo-list{
   background: #F5F5F5; /*#E8E8E8;*/
   border-radius: 9px;
+  padding: 10px;
+}
+
+.buttons-todo-list{
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.icon{
+  height: 30px;
+  width: 30px;
 }

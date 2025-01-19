@@ -1,3 +1,14 @@
-.container-list-doing{
-    /*  width: 30px; */
+.todo-list-doing{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.check-icon-yellow{
+    fill: #FFD700;
+}
+
+.change-status-todo{
+    padding-left: 10px;
+    transform: rotateY(180deg);
 }

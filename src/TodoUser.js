@@ -11,7 +11,7 @@ function TodoUser({ name }){
                 />
             </div>
             <div className='container-name'>
-                <p>
+                <p className='name-user'>
                     {name}
                 </p>
             </div>
