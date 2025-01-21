@@ -2,6 +2,7 @@ import { TodoUser } from './TodoUser';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
 import { TodoListAdd } from './TodoListAdd';
+import { TodoTabs } from './TodoTabs';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
 import { TodoListDoing } from './TodoListDoing';
@@ -29,6 +30,8 @@ function App() {
 
       <TodoCounter completed={16} total={25} />
       <TodoSearch />
+
+      <TodoTabs />
       
       <div className='todo-container'> 
         <TodoListAdd>

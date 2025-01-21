@@ -74,11 +74,3 @@
         width: 40px;
     }
   }
-  
-  /* Estilos para pantallas grandes */
-  @media (min-width: 900px) {
-    /*
-      iPad Pro 12.9" (1024px en modo horizontal).
-      Laptops pequeñas (1366px de ancho típico).
-    */
-  }
