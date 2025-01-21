@@ -24,6 +24,61 @@
     position: relative;
     right: 40px;
     fill: gray;
-    height: 25px♂;
+    height: 25px;
     width: 25px;
 }
+
+/* Estilos para pantallas pequeñas */
+/* max = hasta*/
+@media (max-width: 600px) {
+    /*
+      iPhone SE (375px de ancho).
+      Samsung Galaxy S8 (360px de ancho).
+    */
+    .container-todo-search{
+      margin-top: 0;
+    }
+
+    .input-search{
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .icon-search{
+        height: 30px;
+        width: 30px;
+    }
+  }
+  
+  /* Estilos para pantallas medianas */
+  /* min = desde*/
+  @media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .container-todo-search{
+        margin-top: 0;
+    }
+
+    .input-search{
+        height: 50px;
+        width: 446px;
+        font-size: 25px;
+        padding-left: 15px;
+    }
+
+    .icon-search{
+        right: 50px;
+        height: 40px;
+        width: 40px;
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media (min-width: 900px) {
+    /*
+      iPad Pro 12.9" (1024px en modo horizontal).
+      Laptops pequeñas (1366px de ancho típico).
+    */
+  }

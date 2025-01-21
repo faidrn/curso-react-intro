@@ -28,3 +28,47 @@ img{
     color: #F5F5F5;
     text-shadow: gray 0 1px;
 }
+
+/* Estilos para pantallas pequeñas */
+/* max = hasta*/
+@media (max-width: 600px) {
+    /*
+        iPhone SE (375px de ancho).
+        Samsung Galaxy S8 (360px de ancho).
+    */
+}
+  
+  /* Estilos para pantallas medianas */
+  /* min = desde*/
+  @media (min-width: 600px) and (max-width: 900px) {
+    /*
+        iPad Mini (768px en orientación vertical).
+        iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .container-img{
+        width: 50px;
+        height: 50px;
+    }
+    
+    img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .container-name{
+        width: 230px;
+    }
+
+    .name-user{
+        font-size: 30px;
+    }
+  }
+  
+  /* Estilos para pantallas grandes */
+  @media (min-width: 900px) {
+    /*
+        iPad Pro 12.9" (1024px en modo horizontal).
+        Laptops pequeñas (1366px de ancho típico).
+    */
+    /* Tus estilos aquí */
+  }
