@@ -1,6 +1,59 @@
+/* 
+    Estilos para pantallas pequeñas 
+    max = hasta
+    @media (max-width: 600px) 
+      iPhone SE (375px de ancho).
+      Samsung Galaxy S8 (360px de ancho).
+*/
+
 .container-tabs{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border: 1px solid red;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 20px;
+    height: 40px;
+}
+
+.tabs{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.tabs p{
+    color: #E8E8E8;
+}
+
+.todo-tab{
+    color: gray;
+    border-bottom: 1px solid white;
+}
+
+.todo-tab:hover{
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.todo-tab p{
+    color: gray;
+}
+
+.todo-tab p:hover{
+    color: gray;
+}
+
+.doing-tab:hover{
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.doing-tab p:hover{
+    color: gray;
+}
+
+.done-tab:hover{
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.done-tab p:hover{
+    color: gray;
 }
