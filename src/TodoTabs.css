@@ -34,9 +34,10 @@
 
 .tab-inactive{
     color: var(--light-gray);
+    text-shadow: none;
 }
 
-.todo-tab{
+.active-underline{
     color: gray;
     border-bottom: 1px solid white;
 }
