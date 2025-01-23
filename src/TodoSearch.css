@@ -20,6 +20,11 @@
     color: gray;
 }
 
+.input-search:focus{
+  outline: auto;
+  outline-color: #FFFFE0;
+}
+
 .icon-search{
     position: relative;
     right: 40px;

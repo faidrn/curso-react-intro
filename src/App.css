@@ -104,12 +104,6 @@ li{
     width: 100%;    
   }
 
-  .container-list-add, 
-  .container-list-doing, 
-  .container-list-done h2{
-    font-size: 25px;
-  }
-
   ul{
     font-size: 30px;
   }

@@ -14,10 +14,10 @@ import { TodoItemDone } from './TodoItemDone';
 import './App.css';
 
 const defaultTodos = [
-  { text: 'Cortar cebolla', completed: true},
-  { text: 'Tomar el curso de Intro a React.js', completed: false},
-  { text: 'Llorar con la Llorona', completed: false},
-  { text: 'LALALALA', completed: false},
+  { text: 'Cortar cebolla', status: 'done'},
+  { text: 'Tomar el curso de Intro a React.js', status: 'doing'},
+  { text: 'Llorar con la Llorona', status: 'listed'},
+  { text: 'LALALALA', status: 'listed'},
 ];
 
 function App() {

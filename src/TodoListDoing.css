@@ -12,3 +12,13 @@
     padding-left: 10px;
     transform: rotateY(180deg);
 }
+
+@media (min-width: 600px) and (max-width: 900px) {
+    /*
+      iPad Mini (768px en orientación vertical).
+      iPhone 14 Pro Max (390px en modo horizontal).
+    */
+    .container-list-doing h2{
+        font-size: 33px;
+    }
+}  

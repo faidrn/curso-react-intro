@@ -33,4 +33,7 @@
       iPad Mini (768px en orientación vertical).
       iPhone 14 Pro Max (390px en modo horizontal).
     */
+    .container-list-add h2{
+      font-size: 33px;
+    }
   }
