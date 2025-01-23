@@ -8,12 +8,17 @@
     fill: gray;
 }
 
+.delete-item{
+  cursor: pointer;
+}
+
 .delete-icon{
     fill: red;
 }
 
 .change-status-to-doing{
     padding-right: 10px;
+    cursor: pointer;
 }
 
 /* Estilos para pantallas pequeñas */

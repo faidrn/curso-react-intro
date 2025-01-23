@@ -11,6 +11,11 @@
 .change-status-todo{
     padding-left: 10px;
     transform: rotateY(180deg);
+    cursor: pointer;
+}
+
+.change-status-to-done{
+    cursor: pointer;
 }
 
 @media (min-width: 600px) and (max-width: 900px) {
