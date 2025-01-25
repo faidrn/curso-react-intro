@@ -20,18 +20,7 @@ const defaultTodos = [
   { text: 'LALALALA', status: 'listed'},
   { text: 'Usar estados derivados', status: 'done'},
 ];
-/*
-const listTasks = defaultTodos.filter((task) => 
-  task.status === 'listed'
-);
 
-const doingTasks = defaultTodos.filter((task) => 
-  task.status === 'doing'
-);
-
-const doneTasks = defaultTodos.filter((task) => 
-  task.status === 'done'
-);*/
 
 function App() {
   const [todos, setTodos] = React.useState(defaultTodos);
