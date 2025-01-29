@@ -4,8 +4,8 @@ import { TodoIcon } from './TodoIcon';
 function MoveToTheDoingTabIcon(){
     return (
         <TodoIcon 
-            type="move" 
-            color="gray"
+            type="doing" 
+            fill="grey"
         />
     );
 }

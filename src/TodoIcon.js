@@ -1,12 +1,24 @@
 import { ReactComponent as MoveIconSVG} from './moveNextIcon.svg';
-//import { ReactComponent as DeleteIconSVG} from './deleteIcon.svg';
+import { ReactComponent as DeleteIconSVG} from './deleteIcon.svg';
 
-function TodoIcon(type){
+const iconTypes = {
+    "doing": <MoveIconSVG className='icon' />,
+    "delete": <DeleteIconSVG className='icon' />
+};
+
+const titleIcons = {
+    "doing": "Move task to the Doing tab",
+    "delete": "Delete task", 
+};
+
+function TodoIcon({ type, fill }){
+    console.log(fill);
     return (
         <span
-            className={`icon check-icon-grey`}
+            className={`icon-fill-${fill} padding-right-${type} cursor-pointer`} 
+            title={titleIcons[type]}
         >
-            <MoveIconSVG />
+            {iconTypes[type]}
         </span>
     );
 }
