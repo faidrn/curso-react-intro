@@ -1,11 +1,12 @@
 import React from "react";
 import { TodoIcon } from './TodoIcon';
 
-function MoveToTheDoingTabIcon(){
+function MoveToTheDoingTabIcon({ onDoing }){
     return (
         <TodoIcon 
             type="doing" 
-            fill="grey"
+            fill="gray"
+            onClick={onDoing}
         />
     );
 }

@@ -10,7 +10,9 @@ function TodoItem(props){
           <p>{props.text}</p>
 
           <div className="buttons-todo-list">
-            <MoveToTheDoingTabIcon />
+            <MoveToTheDoingTabIcon 
+              onDoing={props.onDoing}
+            />
             {/* <span 
               className="change-status-to-doing" 
               title="Move to the Doing tab" 
@@ -21,7 +23,9 @@ function TodoItem(props){
               </svg>
             </span> */}
 
-              <DeleteIcon />
+              <DeleteIcon 
+                onDelete={props.onDelete}
+              />
             {/* <span 
               className="delete-item" 
               title="Delete task" 

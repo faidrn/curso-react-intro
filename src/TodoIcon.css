@@ -3,12 +3,20 @@
     width: 30px;
 }
 
-.icon-fill-grey{
+.icon-fill-gray{
     fill: gray;
 }
 
 .icon-fill-red{
     fill: red;
+}
+
+.icon-fill-yellow{
+  fill: #FFD700;
+}
+
+.icon-fill-green{
+  fill: #008000;
 }
 
 .padding-right-doing{
@@ -17,6 +25,21 @@
 
 .cursor-pointer{
   cursor: pointer;
+}
+
+.move-todo-tab{
+  padding-left: 10px;
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.status-compeleted{
+  position: relative;
+  top: -21px;
+  width: 100%;
+  left: 17px;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 /* Estilos para pantallas pequeñas */

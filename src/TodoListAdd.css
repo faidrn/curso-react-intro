@@ -4,21 +4,6 @@
     align-items: flex-start;
 }
 
-.icon-fill-grey{
-    fill: gray;
-}
-
-.icon-fill-red{
-    fill: red;
-}
-
-.padding-right-doing{
-    padding-right: 10px;
-}
-
-.cursor-pointer{
-  cursor: pointer;
-}
 
 /* Estilos para pantallas pequeñas */
 /* max = hasta*/
