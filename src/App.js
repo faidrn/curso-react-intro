@@ -13,7 +13,7 @@ import React from 'react';
 
 import './App.css';
 
-const defaultTodos = [
+/* const defaultTodos = [
   { text: 'Cortar cebolla', status: 'done'},
   { text: 'Tomar el curso de Intro a React.js', status: 'doing'},
   { text: 'Llorar con la Llorona', status: 'listed'},
@@ -21,15 +21,31 @@ const defaultTodos = [
   { text: 'Usar estados derivados', status: 'done'},
 ];
 
+ localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));  */
+// localStorage.removeItem('TODOS_V1');
+
 
 function App() {
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const localStorageTodos = localStorage.getItem('TODOS_V1');
+
+  let parsedTodos;
+
+  if (!localStorageTodos){
+    localStorage.setItem('TODOS_V1', JSON.stringify([]));
+    parsedTodos = [];
+  } else {
+    parsedTodos = JSON.parse(localStorageTodos);
+
+  }
+  
+
+  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
-  const completedTodos = defaultTodos.filter(todo => todo.status === 'done').length;
+  const completedTodos = parsedTodos.filter(todo => todo.status === 'done').length;
   const totalTodos = todos.length; //todos=>const [todos, setTodos] = React.useState(defaultTodos);
 
-  const searchedTodosListed = defaultTodos.filter(
+  const searchedTodosListed = parsedTodos.filter(
     (todo) => {
       const todoText = todo.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
@@ -37,7 +53,7 @@ function App() {
     }
   );
 
-  const searchedTodosDoing = defaultTodos.filter(
+  const searchedTodosDoing = parsedTodos.filter(
     (todo) => {
       const todoText = todo.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
@@ -46,7 +62,7 @@ function App() {
     }
   );
 
-  const searchedTodosDone = defaultTodos.filter(
+  const searchedTodosDone = parsedTodos.filter(
     (todo) => {
       const todoText = todo.text.toLowerCase();
       const searchText = searchValue.toLowerCase();
@@ -54,6 +70,12 @@ function App() {
       return todoText.includes(searchText) && todo.status === 'done';
     }
   );
+
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('TODOS_V1', JSON.stringify(newTodos));
+
+    setTodos(newTodos);
+  };
 
   const completeTodo = (text) => {
     const newTodos = [...todos]; 
@@ -63,7 +85,7 @@ function App() {
 
     newTodos[todoIndex].status = 'done';
 
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const doingTodo = (text) => {
@@ -74,7 +96,7 @@ function App() {
 
     newTodos[todoIndex].status = 'doing';
 
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const returnTodo = (text) => {
@@ -85,7 +107,7 @@ function App() {
 
     newTodos[todoIndex].status = 'listed';
 
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const deleteTodo = (text) => {
@@ -96,7 +118,7 @@ function App() {
 
     newTodos.splice(todoIndex, 1);
 
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
 
