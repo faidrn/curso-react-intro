@@ -9,6 +9,7 @@ import { TodoListDoing } from './TodoListDoing';
 import { TodoItemDoing } from './TodoItemDoing';
 import { TodoListDone } from './TodoListDone';
 import { TodoItemDone } from './TodoItemDone';
+import { TodoAddNew } from './TodoAddNew';
 import React from 'react';
 
 import './App.css';
@@ -129,6 +130,17 @@ function App() {
     saveTodos(newTodos);
   };
 
+  const addTodo = (text) => {
+    const newTodos = [...todos]; 
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text === text
+    );
+
+    newTodos.splice(todoIndex, 1);
+
+    saveTodos(newTodos);
+  };
+
 
   return (
    
@@ -157,10 +169,11 @@ function App() {
             
           ))}
           
-          <CreateTodoButton />
+          <CreateTodoButton 
+            //openAddTodo={}
+          />
           
         </TodoListAdd>
-
         
 
         <TodoListDoing>
@@ -183,6 +196,7 @@ function App() {
           ))}
         </TodoListDone>       
       </div>
+      <TodoAddNew />
 
       
     </>
