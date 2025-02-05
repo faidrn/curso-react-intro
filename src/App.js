@@ -130,16 +130,35 @@ function App() {
     saveTodos(newTodos);
   };
 
-  const addTodo = (text) => {
-    const newTodos = [...todos]; 
-    const todoIndex = newTodos.findIndex(
-      (todo) => todo.text === text
-    );
+  const addTodo = () => {
+    const newTodo = {text: searchValue, status: 'listed'}; 
 
-    newTodos.splice(todoIndex, 1);
+    const updatedTodos = [...todos, newTodo]; // Agrega la nueva tarea al arreglo existente
 
-    saveTodos(newTodos);
+    saveTodos(updatedTodos);
+
+    setSearchValue(''); // Limpia el input
+
+    // Deshabilitar el botón después de hacer clic
+    setIsDisabled(true);
+
+    // Quitar la clase 'highlighted' del div contenedor
+    showFormAddNewTask();
+
   };
+
+
+  const [isDisabled, setIsDisabled] = React.useState(true); // Estado inicial: botón deshabilitado
+
+  const disabledButton = () => {
+    setIsDisabled(!isDisabled); // Cambia el estado para habilitar/deshabilitar el botón
+  };
+
+  const showFormAddNewTask = () => {
+    const containerAddTodo = document.querySelector('.container-add-todo');
+
+    containerAddTodo.classList.toggle('container-add-todo-hidden');
+  }
 
 
   return (
@@ -170,7 +189,7 @@ function App() {
           ))}
           
           <CreateTodoButton 
-            //openAddTodo={}
+            onClick={() => showFormAddNewTask()}
           />
           
         </TodoListAdd>
@@ -196,7 +215,15 @@ function App() {
           ))}
         </TodoListDone>       
       </div>
-      <TodoAddNew />
+      <TodoAddNew 
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue}
+        isDisabled={isDisabled} 
+        setIsDisabled={setIsDisabled}
+        onDisabled={() => disabledButton()} 
+        onAddNew={() => addTodo()}
+
+      />
 
       
     </>
