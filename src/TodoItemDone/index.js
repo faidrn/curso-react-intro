@@ -1,4 +1,4 @@
-import { CompleteIcon } from './CompleteIcon';
+import { CompleteIcon } from '../CompleteIcon';
 
 function TodoItemDone(props){
     return (

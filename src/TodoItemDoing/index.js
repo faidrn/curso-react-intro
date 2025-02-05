@@ -1,5 +1,5 @@
-import { MoveToTheToDoTabIcon } from './MoveToTheToDoTabIcon';
-import { MoveToTheDoneTabIcon } from './MoveToTheDoneTabIcon';
+import { MoveToTheToDoTabIcon } from '../MoveToTheToDoTabIcon';
+import { MoveToTheDoneTabIcon } from '../MoveToTheDoneTabIcon';
 
 function TodoItemDoing(props){
     return (

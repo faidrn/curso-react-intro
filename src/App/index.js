@@ -1,17 +1,17 @@
-import { TodoUser } from './TodoUser';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoListAdd } from './TodoListAdd';
-import { TodoTabs } from './TodoTabs';
-import { TodoItem } from './TodoItem';
-import { CreateTodoButton } from './CreateTodoButton';
-import { TodoListDoing } from './TodoListDoing';
-import { TodoItemDoing } from './TodoItemDoing';
-import { TodoListDone } from './TodoListDone';
-import { TodoItemDone } from './TodoItemDone';
-import { TodoAddNew } from './TodoAddNew';
+import { TodoUser } from '../TodoUser';
+import { TodoCounter } from '../TodoCounter';
+import { TodoSearch } from '../TodoSearch';
+import { TodoListAdd } from '../TodoListAdd';
+import { TodoTabs } from '../TodoTabs';
+import { TodoItem } from '../TodoItem';
+import { CreateTodoButton } from '../CreateTodoButton';
+import { TodoListDoing } from '../TodoListDoing';
+import { TodoItemDoing } from '../TodoItemDoing';
+import { TodoListDone } from '../TodoListDone';
+import { TodoItemDone } from '../TodoItemDone';
+import { TodoAddNew } from '../TodoAddNew';
 import React from 'react';
-
+import { useLocalStorage } from './useLocalStorage';
 import './App.css';
 
 /* const defaultTodos = [
@@ -25,31 +25,7 @@ import './App.css';
  localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));  */
 // localStorage.removeItem('TODOS_V1');
 
-function useLocalStorage(itemName, initialValue){
 
-  const localStorageItem = localStorage.getItem(itemName);
-
-  let parsedItem;
-
-  if (!localStorageItem){
-    localStorage.setItem(itemName, JSON.stringify(initialValue));
-    parsedItem = [];
-  } else {
-    parsedItem = JSON.parse(localStorageItem);
-  }
-
-  const [item, setItem] = React.useState(parsedItem);
-
-
-
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem));
-
-    setItem(newItem);
-  };
-
-  return [item, saveItem];
-}
 
 function App() {
 
