@@ -13,6 +13,8 @@ import { TodoAddNew } from '../TodoAddNew';
 
 
 function AppUI({
+    loading, 
+    error, 
     completedTodos,
     totalTodos,
     searchValue,
@@ -47,6 +49,10 @@ function AppUI({
            
            <div className='todo-container'> 
              <TodoListAdd>
+                {loading && <p>Estamos cargando...</p>}
+                {error && <p>Alerta! HUbo un error!</p>}
+                {(!loading && searchedTodosListed.length === 0) && <p>Crea tu primer TODO!</p>}
+
                {searchedTodosListed.map(todo => (
                    <TodoItem 
                      key={todo.text} 
