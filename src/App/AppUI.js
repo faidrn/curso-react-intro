@@ -10,6 +10,9 @@ import { TodoItemDoing } from '../TodoItemDoing';
 import { TodoListDone } from '../TodoListDone';
 import { TodoItemDone } from '../TodoItemDone';
 import { TodoAddNew } from '../TodoAddNew';
+import { TodosLoading } from '../TodosLoading';
+import { TodosError } from '../TodosError';
+import { EmptyTodos } from '../EmptyTodos';
 
 
 function AppUI({
@@ -49,9 +52,9 @@ function AppUI({
            
            <div className='todo-container'> 
              <TodoListAdd>
-                {loading && <p>Estamos cargando...</p>}
-                {error && <p>Alerta! HUbo un error!</p>}
-                {(!loading && searchedTodosListed.length === 0) && <p>Crea tu primer TODO!</p>}
+                {loading && <TodosLoading />}
+                {error && <TodosError />}
+                {(!loading && searchedTodosListed.length === 0) && <EmptyTodos />}
 
                {searchedTodosListed.map(todo => (
                    <TodoItem 
