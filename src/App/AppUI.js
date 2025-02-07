@@ -55,7 +55,6 @@ function AppUI({
                 {loading && <TodosLoading />}
                 {error && <TodosError />}
                 {(!loading && searchedTodosListed.length === 0) && <EmptyTodos />}
-
                {searchedTodosListed.map(todo => (
                    <TodoItem 
                      key={todo.text} 
@@ -66,14 +65,18 @@ function AppUI({
                  
                ))}
                
-               <CreateTodoButton 
-                 onClick={() => showFormAddNewTask()}
-               />
+               {!loading && (
+                <CreateTodoButton 
+                  onClick={() => showFormAddNewTask()}
+                />
+               )}
+               
                
              </TodoListAdd>
              
      
              <TodoListDoing>
+                {loading && <TodosLoading />}
                {searchedTodosDoing.map(todo => (
                  <TodoItemDoing 
                    key={todo.text} 
@@ -85,6 +88,7 @@ function AppUI({
              </TodoListDoing>
      
              <TodoListDone>
+                {loading && <TodosLoading />}
                {searchedTodosDone.map(todo => (
                  <TodoItemDone 
                    key={todo.text} 
