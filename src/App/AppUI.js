@@ -48,64 +48,73 @@ function AppUI({
              setSearchValue={setSearchValue}
            />
      
-           <TodoTabs />
-           
-           <div className='todo-container'> 
-             <TodoListAdd>
+          
+         {error ? (
+          <TodosError /> //Mostrar mensaje de error
+         ) : (
+          <>
+            <TodoTabs />
+            
+            <div className='todo-container'> 
+              <TodoListAdd>
                 {loading && <TodosLoading />}
-                {error && <TodosError />}
+                {/* {error && <TodosError />} */}
                 {(!loading && searchedTodosListed.length === 0) && <EmptyTodos />}
-               {searchedTodosListed.map(todo => (
-                   <TodoItem 
-                     key={todo.text} 
-                     text={todo.text} 
-                     onDoing={() => doingTodo(todo.text)}
-                     onDelete={() => deleteTodo(todo.text)}
-                   />
-                 
-               ))}
-               
-               {!loading && (
+                {searchedTodosListed.map(todo => (
+                    <TodoItem 
+                      key={todo.text} 
+                      text={todo.text} 
+                      onDoing={() => doingTodo(todo.text)}
+                      onDelete={() => deleteTodo(todo.text)}
+                    />
+                  
+                ))}
+                
+                {!loading && (
                 <CreateTodoButton 
                   onClick={() => showFormAddNewTask()}
                 />
-               )}
-               
-               
-             </TodoListAdd>
-             
-     
-             <TodoListDoing>
+                )}
+                
+                
+              </TodoListAdd>
+              
+      
+              <TodoListDoing>
                 {loading && <TodosLoading />}
-               {searchedTodosDoing.map(todo => (
-                 <TodoItemDoing 
-                   key={todo.text} 
-                   text={todo.text} 
-                   onComplete={() => completeTodo(todo.text)}
-                   onTodo={() => returnTodo(todo.text)}
-                 />
-               ))}
-             </TodoListDoing>
-     
-             <TodoListDone>
+                {searchedTodosDoing.map(todo => (
+                  <TodoItemDoing 
+                    key={todo.text} 
+                    text={todo.text} 
+                    onComplete={() => completeTodo(todo.text)}
+                    onTodo={() => returnTodo(todo.text)}
+                  />
+                ))}
+              </TodoListDoing>
+      
+              <TodoListDone>
                 {loading && <TodosLoading />}
-               {searchedTodosDone.map(todo => (
-                 <TodoItemDone 
-                   key={todo.text} 
-                   text={todo.text}            
-                 />
-               ))}
-             </TodoListDone>       
-           </div>
-           <TodoAddNew 
-             searchValue={searchValue} 
-             setSearchValue={setSearchValue}
-             isDisabled={isDisabled} 
-             setIsDisabled={setIsDisabled}
-             onDisabled={() => disabledButton()} 
-             onAddNew={() => addTodo()}
-     
-           />
+                {searchedTodosDone.map(todo => (
+                  <TodoItemDone 
+                    key={todo.text} 
+                    text={todo.text}            
+                  />
+                ))}
+              </TodoListDone>       
+            </div>
+            <TodoAddNew 
+              searchValue={searchValue} 
+              setSearchValue={setSearchValue}
+              isDisabled={isDisabled} 
+              setIsDisabled={setIsDisabled}
+              onDisabled={() => disabledButton()} 
+              onAddNew={() => addTodo()}
+      
+            />
+          </>
+         )}
+
+           
      
            
          </>
