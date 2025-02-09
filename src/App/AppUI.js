@@ -41,18 +41,19 @@ function AppUI({
         <>
      
            <TodoUser name={'Fredy Izquierdo'} />
-     
-           <TodoCounter completed={completedTodos} total={totalTodos} />
-           <TodoSearch 
-             searchValue={searchValue} 
-             setSearchValue={setSearchValue}
-           />
+
+          {error ? (
+            <TodosError /> //Mostrar mensaje de error
+          ) : (
+            <>
+      
+            <TodoCounter completed={completedTodos} total={totalTodos} />
+            <TodoSearch 
+              searchValue={searchValue} 
+              setSearchValue={setSearchValue}
+            />
      
           
-         {error ? (
-          <TodosError /> //Mostrar mensaje de error
-         ) : (
-          <>
             <TodoTabs />
             
             <div className='todo-container'> 

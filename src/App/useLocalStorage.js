@@ -5,7 +5,7 @@ function useLocalStorage(itemName, initialValue){
 
   const [item, setItem] = React.useState(initialValue);
   const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(true); // Cambia a false para desactivar la simulación de error
+  const [error, setError] = React.useState(false); // Cambia a tru para activar la simulación de error
 
 
   //estados de carga y error
