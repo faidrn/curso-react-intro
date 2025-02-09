@@ -46,7 +46,7 @@ function AppUI({
             <TodosError /> //Mostrar mensaje de error
           ) : (
             <>
-            {searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
+            {!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
               && searchedTodosDone.length === 0 ? (
                 <EmptyTodos />
               ) : (
