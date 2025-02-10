@@ -13,10 +13,11 @@ import { TodoAddNew } from '../TodoAddNew';
 import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
+import { TodoContext } from '../TodoContext';
 
 
 function AppUI({
-    loading, 
+    /* loading, 
     error, 
     completedTodos,
     totalTodos,
@@ -33,7 +34,7 @@ function AppUI({
     isDisabled,
     setIsDisabled,
     disabledButton,
-    addTodo,
+    addTodo, */
 }){
     return (
    
@@ -52,59 +53,62 @@ function AppUI({
               ) : (
                 <>
       
-                  <TodoCounter completed={completedTodos} total={totalTodos} />
-                  <TodoSearch 
-                    searchValue={searchValue} 
-                    setSearchValue={setSearchValue}
-                  />
+                  <TodoCounter />
+                  <TodoSearch />
           
                 
                   <TodoTabs />
                   
+                  
                   <div className='todo-container'> 
-                    <TodoListAdd>
-                      {loading && <TodosLoading />}
-                      {searchedTodosListed.map(todo => (
-                          <TodoItem 
-                            key={todo.text} 
-                            text={todo.text} 
-                            onDoing={() => doingTodo(todo.text)}
-                            onDelete={() => deleteTodo(todo.text)}
+                    <TodoContext.Consumer>
+                      {() => (
+                          <TodoListAdd>
+                          {loading && <TodosLoading />}
+                          {searchedTodosListed.map(todo => (
+                              <TodoItem 
+                                key={todo.text} 
+                                text={todo.text} 
+                                onDoing={() => doingTodo(todo.text)}
+                                onDelete={() => deleteTodo(todo.text)}
+                              />
+                            
+                          ))}
+                          
+                          {!loading && (
+                          <CreateTodoButton 
+                            onClick={() => showFormAddNewTask()}
                           />
+                          )}
+                          
+                          
+                        </TodoListAdd>
                         
-                      ))}
-                      
-                      {!loading && (
-                      <CreateTodoButton 
-                        onClick={() => showFormAddNewTask()}
-                      />
-                      )}
-                      
-                      
-                    </TodoListAdd>
-                    
-            
-                    <TodoListDoing>
-                      {loading && <TodosLoading />}
-                      {searchedTodosDoing.map(todo => (
-                        <TodoItemDoing 
-                          key={todo.text} 
-                          text={todo.text} 
-                          onComplete={() => completeTodo(todo.text)}
-                          onTodo={() => returnTodo(todo.text)}
-                        />
-                      ))}
-                    </TodoListDoing>
-            
-                    <TodoListDone>
-                      {loading && <TodosLoading />}
-                      {searchedTodosDone.map(todo => (
-                        <TodoItemDone 
-                          key={todo.text} 
-                          text={todo.text}            
-                        />
-                      ))}
-                    </TodoListDone>       
+                
+                        <TodoListDoing>
+                          {loading && <TodosLoading />}
+                          {searchedTodosDoing.map(todo => (
+                            <TodoItemDoing 
+                              key={todo.text} 
+                              text={todo.text} 
+                              onComplete={() => completeTodo(todo.text)}
+                              onTodo={() => returnTodo(todo.text)}
+                            />
+                          ))}
+                        </TodoListDoing>
+                
+                        <TodoListDone>
+                          {loading && <TodosLoading />}
+                          {searchedTodosDone.map(todo => (
+                            <TodoItemDone 
+                              key={todo.text} 
+                              text={todo.text}            
+                            />
+                          ))}
+                        </TodoListDone> 
+                      )} 
+                    </TodoContext.Consumer>
+                         
                   </div>
                   <TodoAddNew 
                     searchValue={searchValue} 
