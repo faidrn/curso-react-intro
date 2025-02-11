@@ -14,13 +14,13 @@ import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
 import { TodoContext } from '../TodoContext';
+import React from 'react';
 
 
-function AppUI({
-    /* loading, 
+function AppUI(){
+  const {
+    loading, 
     error, 
-    completedTodos,
-    totalTodos,
     searchValue,
     setSearchValue,
     searchedTodosListed,
@@ -34,19 +34,18 @@ function AppUI({
     isDisabled,
     setIsDisabled,
     disabledButton,
-    addTodo, */
-}){
+    addTodo, 
+  } = React.useContext(TodoContext);
     return (
-   
-        //<React.Fragment> = <>
-        <>
-     
-           <TodoUser name={'Fredy Izquierdo'} />
+      //<React.Fragment> = <>
+      <>
+  
+        <TodoUser name={'Fredy Izquierdo'} />
 
-          {error ? (
-            <TodosError /> //Mostrar mensaje de error
-          ) : (
-            <>
+        {error ? (
+          <TodosError /> //Mostrar mensaje de error
+        ) : (
+          <>
             {!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
               && searchedTodosDone.length === 0 ? (
                 <EmptyTodos />
@@ -61,54 +60,47 @@ function AppUI({
                   
                   
                   <div className='todo-container'> 
-                    <TodoContext.Consumer>
-                      {() => (
-                          <TodoListAdd>
-                          {loading && <TodosLoading />}
-                          {searchedTodosListed.map(todo => (
-                              <TodoItem 
-                                key={todo.text} 
-                                text={todo.text} 
-                                onDoing={() => doingTodo(todo.text)}
-                                onDelete={() => deleteTodo(todo.text)}
-                              />
-                            
-                          ))}
+                    
+                    <TodoListAdd>
+                      {loading && <TodosLoading />}
+                      {searchedTodosListed.map(todo => (
+                        <TodoItem 
+                          key={todo.text} 
+                          text={todo.text} 
+                          onDoing={() => doingTodo(todo.text)}
+                          onDelete={() => deleteTodo(todo.text)}
+                        />
                           
-                          {!loading && (
-                          <CreateTodoButton 
-                            onClick={() => showFormAddNewTask()}
-                          />
-                          )}
+                      ))}
                           
-                          
-                        </TodoListAdd>
+                      {!loading && (
+                        <CreateTodoButton 
+                          onClick={() => showFormAddNewTask()}
+                        />
+                      )}            
+                    </TodoListAdd>
                         
+                    <TodoListDoing>
+                      {loading && <TodosLoading />}
+                      {searchedTodosDoing.map(todo => (
+                        <TodoItemDoing 
+                          key={todo.text} 
+                          text={todo.text} 
+                          onComplete={() => completeTodo(todo.text)}
+                          onTodo={() => returnTodo(todo.text)}
+                        />
+                      ))}
+                    </TodoListDoing>
                 
-                        <TodoListDoing>
-                          {loading && <TodosLoading />}
-                          {searchedTodosDoing.map(todo => (
-                            <TodoItemDoing 
-                              key={todo.text} 
-                              text={todo.text} 
-                              onComplete={() => completeTodo(todo.text)}
-                              onTodo={() => returnTodo(todo.text)}
-                            />
-                          ))}
-                        </TodoListDoing>
-                
-                        <TodoListDone>
-                          {loading && <TodosLoading />}
-                          {searchedTodosDone.map(todo => (
-                            <TodoItemDone 
-                              key={todo.text} 
-                              text={todo.text}            
-                            />
-                          ))}
-                        </TodoListDone> 
-                      )} 
-                    </TodoContext.Consumer>
-                         
+                    <TodoListDone>
+                      {loading && <TodosLoading />}
+                      {searchedTodosDone.map(todo => (
+                        <TodoItemDone 
+                          key={todo.text} 
+                          text={todo.text}            
+                        />
+                      ))}
+                    </TodoListDone> 
                   </div>
                   <TodoAddNew 
                     searchValue={searchValue} 
@@ -120,15 +112,11 @@ function AppUI({
             
                   />
                 </>
-            )}
+              )}
           </>
-         )}
-
-           
-     
-           
-         </>
-         //</React.Fragment> = </>
+        )}
+      </>
+      //</React.Fragment> = </>
     );
 }
 
