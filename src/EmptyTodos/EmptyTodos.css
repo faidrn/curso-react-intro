@@ -1,6 +1,6 @@
 .container-empty-todos{
-    height: 100vh;
-    margin-top: 125px;
+    height: 29vh;
+    margin-top: 36px;
 }
 
 .empty-icon-container{
@@ -90,7 +90,7 @@
       iPhone 14 Pro Max (390px en modo horizontal).
     */
     .container-empty-todos{
-        height: 78vh;
+        height: 28vh;
     }
 
     .animation-container{
@@ -130,7 +130,7 @@
       Laptops pequeñas (1366px de ancho típico).
     */
     .container-empty-todos{
-        height: 72.5vh;
+        height: 33vh;
     }
 
     .animation-container{

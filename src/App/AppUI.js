@@ -1,3 +1,4 @@
+import React from 'react';
 import { TodoUser } from '../TodoUser';
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
@@ -9,32 +10,35 @@ import { TodoListDoing } from '../TodoListDoing';
 import { TodoItemDoing } from '../TodoItemDoing';
 import { TodoListDone } from '../TodoListDone';
 import { TodoItemDone } from '../TodoItemDone';
-import { TodoAddNew } from '../TodoAddNew';
+//import { TodoAddNew } from '../TodoAddNew';
 import { TodosLoading } from '../TodosLoading';
 import { TodosError } from '../TodosError';
 import { EmptyTodos } from '../EmptyTodos';
+import { Modal } from '../Modal';
+import { TodoForm } from '../TodoForm';
 import { TodoContext } from '../TodoContext';
-import React from 'react';
 
 
 function AppUI(){
   const {
     loading, 
     error, 
-    searchValue,
-    setSearchValue,
+    /* searchValue,
+    setSearchValue, */
     searchedTodosListed,
     doingTodo,
     deleteTodo,
-    showFormAddNewTask,
+    /* showFormAddNewTask, */
     searchedTodosDoing,
     completeTodo,
     returnTodo,
     searchedTodosDone,
-    isDisabled,
+    /* isDisabled,
     setIsDisabled,
     disabledButton,
-    addTodo, 
+    addTodo,  */
+    openModal, 
+    setOpenModal, 
   } = React.useContext(TodoContext);
     return (
       //<React.Fragment> = <>
@@ -46,11 +50,12 @@ function AppUI(){
           <TodosError /> //Mostrar mensaje de error
         ) : (
           <>
-            {!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
-              && searchedTodosDone.length === 0 ? (
+            {loading && <TodosLoading />}
+
+            {(!loading && searchedTodosListed.length === 0 && searchedTodosDoing.length=== 0
+              && searchedTodosDone.length === 0) &&
                 <EmptyTodos />
-              ) : (
-                <>
+            } 
       
                   <TodoCounter />
                   <TodoSearch />
@@ -75,8 +80,14 @@ function AppUI(){
                           
                       {!loading && (
                         <CreateTodoButton 
-                          onClick={() => showFormAddNewTask()}
+                          /* onClick={() => showFormAddNewTask()} */
+                          setOpenModal={setOpenModal}
                         />
+                      )}
+                      {openModal && (
+                        <Modal>
+                          <TodoForm />
+                        </Modal>
                       )}            
                     </TodoListAdd>
                         
@@ -102,7 +113,7 @@ function AppUI(){
                       ))}
                     </TodoListDone> 
                   </div>
-                  <TodoAddNew 
+                  {/* <TodoAddNew 
                     searchValue={searchValue} 
                     setSearchValue={setSearchValue}
                     isDisabled={isDisabled} 
@@ -110,9 +121,8 @@ function AppUI(){
                     onDisabled={() => disabledButton()} 
                     onAddNew={() => addTodo()}
             
-                  />
-                </>
-              )}
+                  /> */}
+                
           </>
         )}
       </>

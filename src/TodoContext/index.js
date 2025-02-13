@@ -12,6 +12,7 @@ function TodoProvider({ children}){
       } = useLocalStorage('TODOS_V1', []);
     
       const [searchValue, setSearchValue] = React.useState('');
+      const [openModal, setOpenModal] = React.useState(false); //Estado por defecto false= cerrado
     
       const completedTodos = todos.filter(todo => todo.status === 'done').length; // este todo viene de: const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
       const totalTodos = todos.length; //todos=>const [todos, setTodos] = React.useState(defaultTodos);
@@ -139,6 +140,8 @@ function TodoProvider({ children}){
             setIsDisabled,
             disabledButton,
             addTodo, 
+            openModal, 
+            setOpenModal, 
         }}>
             {children}
         </TodoContext.Provider>

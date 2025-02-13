@@ -9,6 +9,7 @@
     cursor: pointer;
     width: 137px;
     height: 30px;
+    z-index: 1;
 }
 
 .btn-add-new::before {
