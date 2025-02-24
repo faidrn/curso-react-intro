@@ -42,6 +42,16 @@ function TodoProvider({ children}){
           return todoText.includes(searchText) && todo.status === 'done';
         }
       );
+
+      const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.push({
+          text: text, 
+          status: 'listed', 
+        });
+        
+        saveTodos(newTodos);
+      };
     
     
       const completeTodo = (text) => {
@@ -88,7 +98,7 @@ function TodoProvider({ children}){
         saveTodos(newTodos);
       };
     
-      const addTodo = () => {
+      /* const addTodo = () => {
         const newTodo = {text: searchValue, status: 'listed'}; 
     
         const updatedTodos = [...todos, newTodo]; // Agrega la nueva tarea al arreglo existente
@@ -103,7 +113,7 @@ function TodoProvider({ children}){
         // Quitar la clase 'highlighted' del div contenedor
         showFormAddNewTask();
     
-      };
+      }; */
     
     
       const [isDisabled, setIsDisabled] = React.useState(true); // Estado inicial: botón deshabilitado

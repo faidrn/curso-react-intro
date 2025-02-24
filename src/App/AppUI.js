@@ -57,9 +57,15 @@ function AppUI(){
                 <EmptyTodos />
             } 
       
-                  <TodoCounter />
-                  <TodoSearch />
-          
+
+                  {!loading && (searchedTodosListed.length > 0 || searchedTodosDoing.length > 0
+                    || searchedTodosDone.length > 0) && (
+                      <>
+                        <TodoCounter /> 
+                        <TodoSearch />
+                      </>
+                    )
+                  }
                 
                   <TodoTabs />
                   
